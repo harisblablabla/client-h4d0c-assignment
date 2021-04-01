@@ -1,0 +1,41 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="a">
+        <h3>{{name}}</h3>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="b">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><span>issue</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <h4>{{issueTitle}} # {{userId}}</h4>
+    <br/>
+    <h5>{{state}}</h5>
+    <br/>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card p-3" style="height: 100%">
+                <h5>{{description}}</h5>
+                <br/>
+                <p>{{body}}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">label</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of label; let i = index">
+                    <td colspan="">{{data.name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

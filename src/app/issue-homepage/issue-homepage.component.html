@@ -1,0 +1,48 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="a">
+        <h3>{{name}}</h3>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="b">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" click=callData() style="cursor: pointer;"><span>issue</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+      <form class="form-inline col-md-6 my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="searchData" [(ngModel)]="searchData" placeholder="Search" aria-label="Search" defaultValue="">
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="search()" type="submit">Search</button>
+      </form>
+
+      <table class="table text-center" aria-label="tabel">
+        <thead>
+          <tr>
+            <th scope="col">484 open</th>
+            <th scope="col">500 closed</th>
+            <th scope="col" colspan="3">labels filter</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="notnull">
+          <tr *ngFor="let data of arrData; let i = index">
+            <td colspan="5" style="cursor: pointer;" (click)="navigateDetails(data.number)">{{data.title}}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="!notnull">
+            <tr>
+              <td colspan="5">data not found</td>
+            </tr>
+          </tbody>
+      </table>
+
+      <nav aria-label="Page navigation example justify-content-center">
+        <ul class="pagination justify-content-center" style="cursor: pointer;">
+          <li class="page-item"><a class="page-link" (click)="backPage()">Previous</a></li>
+          <li class="page-item"><a class="page-link" (click)="setPage(1)">1</a></li>
+          <li class="page-item"><a class="page-link" (click)="setPage(2)">2</a></li>
+          <li class="page-item"><a class="page-link" (click)="setPage(3)">3</a></li>
+          <li class="page-item"><a class="page-link" (click)="addPage()">Next</a></li>
+        </ul>
+      </nav>
+</div>
